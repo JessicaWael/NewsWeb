@@ -1,0 +1,55 @@
+﻿@model IEnumerable<NewsWebsite.Models.Category>
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<header id="header" class="fixed-top">
+    <div class="container d-flex align-items-center">
+
+        <a href="index.html" class="logo me-auto"><img src="~/assets/img/R.png" alt=""></a>
+        <nav id="navbar" class="navbar order-last order-lg-0">
+            <ul>
+                <li><a class="nav-link scrollto " href="/Home/Index">Home</a></li>
+                @* <li><a class="nav-link scrollto" href="#about">About</a></li>*@
+
+               @* <li><a class="nav-link scrollto" href="/Categories/Index">Categories</a></li>*@
+                <li><a class="nav-link scrollto" href="/Home/Index">News</a></li>
+                @* <li><a class="nav-link scrollto" href="/User/Login">Login</a></li>
+
+                <li><a class="nav-link scrollto" href="/User/Register">Register</a></li>*@
+            </ul>
+            <i class="bi bi-list mobile-nav-toggle"></i>
+        </nav>
+</header>
+<table class="table border" >
+    <thead>
+        <tr>
+            <th>
+               Name
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Name
+                    @* @Html.DisplayFor(modelItem => item.Name)*@
+            </td>
+            <td>
+                @item.Description
+                    @*@Html.DisplayFor(modelItem => item.Description)*@
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-primary">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Id"class="btn btn-primary">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id"class="btn btn-danger">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+

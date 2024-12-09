@@ -1,0 +1,54 @@
+﻿@model NewsWebsite.Models.users
+
+
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="~/assets/css/style.css">
+   
+</head>
+<body>
+    <div class="wrapper">
+        <div class="Register">
+            <h2>SIGNUP</h2>
+            @using (Html.BeginForm("Register", "User", FormMethod.Post))
+            {
+                <div class="formLogin">
+                    <span class="icon"></span>
+                    @Html.LabelFor(model => model.Username)
+                    @Html.TextBoxFor(model => model.Username)
+                    <br />
+                </div>
+                <div class="formLogin">
+                    <span class="icon"></span>
+
+                    @Html.LabelFor(model => model.Email)
+                    @Html.TextBoxFor(model => model.Email)
+                    <br />
+                </div>
+                <div class="formLogin">
+                    <span class="icon"></span>
+
+                    @Html.LabelFor(model => model.Password)
+                    @Html.PasswordFor(model => model.Password)
+                    <br />
+                </div>
+
+                <button type="submit" class="btnSubmit">Signup</button>
+                <div class="registerLogin">
+                   @*<p>Do you Have Account?<a href="User/Login">Login</a></p>*@
+                </div>
+               
+            }
+        </div>
+    </div>
+    <script src="~/assets/js/main.js"> </script>
+   
+</body>
+</html>
+
+
